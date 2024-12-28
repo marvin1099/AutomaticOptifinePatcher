@@ -1,7 +1,7 @@
 # Automatic-Optifine-Patcher
 A cross-platform Python script that patches OptiFine to work as a jar mod file.  
 This allows it to be used with mod loaders like Forge/Fabric with any mod launcher, such as PrismLauncher.  
-The script supports all OptiFine versions from optifine.net and downloads them fully automaticly.  
+The script supports all OptiFine versions from optifine.net and downloads them fully automatically.  
 
 ## Important
 For Minecraft version 1.16.5 or later, we strongly recommend using [Sodium](https://modrinth.com/mod/sodium) instead of OptiFine.  
