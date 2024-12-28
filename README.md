@@ -65,8 +65,8 @@ For consistency, all package managers install Java 17 in this guide. If a newer 
 For manual installation, download Java from [OpenLogic](https://www.openlogic.com/openjdk-downloads) and add it to your system's PATH.
 
 ## Download
-Download the patcher script from [here](https://codeberg.org/marvin1099/Automatic-Optifine-Patcher/src/branch/main/optifine_patcher.py).  
-Click the download button at the top-right and save the file in an empty folder.
+Download the patcher script from [here](https://codeberg.org/marvin1099/AutomaticOptifinePatcher/releases/latest).  
+Click the ptifine_patcher.py file at the bottom-middle to download it and save the file in an empty folder.
 
 ## Usage
 1. Open a terminal (or Command Prompt on Windows) and navigate to the folder containing `optifine_patcher.py`:
