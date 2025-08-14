@@ -4,8 +4,12 @@ This allows it to be used with mod loaders like Forge/Fabric with any mod launch
 The script supports all OptiFine versions from optifine.net and downloads them fully automatically.  
 
 ## Important
-For Minecraft version 1.16.5 or later, we strongly recommend using [Sodium](https://modrinth.com/mod/sodium) instead of OptiFine.  
-Sodium provides significantly better performance and compatibility with other mods.
+
+For **Minecraft version 1.16.5** or later, we highly recommend **using [Sodium](https://modrinth.com/mod/sodium)** instead of OptiFine.  
+Sodium offers significantly improved performance and better compatibility with other mods.
+
+If you're seeking a more comprehensive OptiFine experience, for **Minecraft version 1.16.5** or later consider **using [OptiFabric](https://modrinth.com/modpack/optifabric-modpack)**.  
+This modpack integrates Sodium, providing you with the advantages of enhanced compatibility and high performance.
 
 ## Requirements
 
