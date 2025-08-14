@@ -12,7 +12,7 @@ import os
 # URLs and paths
 OPTIFINE_BASE_URL = "https://optifine.net/downloads"
 MINECRAFT_MANIFEST_URL = "https://launchermeta.mojang.com/mc/game/version_manifest.json"
-USER_AGENS_URL = "https://tachiyomiorg.github.io/user-agents/user-agents.json"
+USER_AGENS_URL = "https://raw.githubusercontent.com/microlinkhq/top-user-agents/refs/heads/master/src/index.json"
 HEADERS = None # this will be populated with the user agent later
 
 def fetch_html(url,ret_json=False):
@@ -27,7 +27,7 @@ def fetch_html(url,ret_json=False):
     else:
         return html
 
-HEADERS = { 'User-Agent':fetch_html(USER_AGENS_URL,True).get('recommended') }
+HEADERS = { 'User-Agent':fetch_html(USER_AGENS_URL,True)[0] }
 
 def follow_redirect(url):
     if HEADERS:
