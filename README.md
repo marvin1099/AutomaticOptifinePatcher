@@ -88,37 +88,7 @@ cd PATH/TO/PATCHER
 ./optifine-patcher.py [options]
 ```
 
-### Listing Versions
-
-* List all available OptiFine versions:
-
-  ```bash
-  ./optifine-patcher.py -l
-  ```
-* List versions for a specific Minecraft version (e.g. `1.16`):
-
-  ```bash
-  ./optifine-patcher.py -l 1.16
-  ```
-
-### Downloading & Patching
-
-* Download and patch the **latest OptiFine** for the newest supported Minecraft version:
-
-  ```bash
-  ./optifine-patcher.py -d
-  ```
-* Download and patch a **specific version**:
-
-  ```bash
-  ./optifine-patcher.py -d 1.16.5_HD_U_G8
-  ```
-
-The patched file will be created inside a versioned subfolder, for example:
-
-```
-1.16.5/OptiFine_1.16.5_HD_U_G8-MOD.jar
-```
+Check [Examples](#examples) for a jumpstart (section after options)
 
 ### Options
 
@@ -138,16 +108,43 @@ The patched file will be created inside a versioned subfolder, for example:
 
 ## Examples
 
-Download latest OptiFine for Minecraft 1.9.4:
+### Listing
+
+List all available OptiFine versions:
 
 ```bash
-./optifine-patcher.py -d 1.9.4
+./optifine-patcher.py -l
 ```
 
 List OptiFine releases for Minecraft 1.8.x (eg. 1.8.0, 1.8.8 and 1.8.9):
 
 ```bash
 ./optifine-patcher.py -l 1.8
+```
+
+### Downloading and patching
+
+Download and patch the **latest OptiFine** for the newest supported Minecraft version:
+
+```bash
+./optifine-patcher.py -d
+```
+
+Download and patch a **specific version** (Eg. 1.10.2_HD_U_D8):
+
+```bash
+./optifine-patcher.py -d 1.10.2_HD_U_D8
+```
+
+  * The patched file will be created inside a versioned subfolder, for example:
+    ```
+    1.10.2/OptiFine_1.10.2_HD_U_D8-MOD.jar
+    ```
+
+Download latest OptiFine for Minecraft 1.9.4:
+
+```bash
+./optifine-patcher.py -d 1.9.4
 ```
 
 Force re-download of OptiFine and client (1.12.2), then clean up:
