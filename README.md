@@ -75,7 +75,7 @@ Java is required for patching.
 ## Download
 
 Get the latest release from [Codeberg Releases](https://codeberg.org/marvin1099/AutomaticOptifinePatcher/releases/latest).  
-Download the `optifine_patcher.py` (or `new_patcher.py`) and place it in an empty folder.
+Download the `optifine_patcher.py` and place it in an empty folder.
 
 ---
 
