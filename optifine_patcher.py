@@ -455,7 +455,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-    #new = extract_download_link(link)
-    #download_file(new,"file.jar")
-    #exit()
