@@ -1,8 +1,3 @@
-Perfect — since your `main()` has grown quite a bit, the README should reflect all the available flags and workflows.
-Here’s an updated **README draft** that matches your current `argparse` setup:
-
----
-
 # Automatic-OptiFine-Patcher
 
 A cross-platform Python script that **downloads and patches OptiFine** into a standalone mod `.jar` file.
