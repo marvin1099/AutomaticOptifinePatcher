@@ -138,26 +138,32 @@ The patched file will be created inside a versioned subfolder, for example:
 
 ## Examples
 
-Download latest OptiFine for Minecraft 1.12.2:
+Download latest OptiFine for Minecraft 1.9.4:
 
 ```bash
-./optifine-patcher.py -d 1.12.2
+./optifine-patcher.py -d 1.9.4
 ```
 
-List only OptiFine releases for Minecraft 1.8:
+List only OptiFine releases for Minecraft 1.8 (eg. 1.8.0, 1.8.8 and 1.8.9):
 
 ```bash
 ./optifine-patcher.py -l 1.8
 ```
 
-Force re-download of OptiFine and client, then clean up:
+Force re-download of OptiFine and client (1.12.2), then clean up:
 
 ```bash
-./optifine-patcher.py -d 1.16.5 -r -c
+./optifine-patcher.py -d 1.12.2 -r -c
 ```
 
-Download, patch, and move the result into working dir:
+Download newest 1.14 (1.14.4), patch, and move the result into working dir:
 
 ```bash
-./optifine-patcher.py -d 1.19.2 -m -f
+./optifine-patcher.py -d 1.14 -m -f
+```
+
+Download newest 1.13.0 (listed on optifine as 1.13 but means the same thing):
+
+```bash
+./optifine-patcher.py -d 1.13.0
 ```
