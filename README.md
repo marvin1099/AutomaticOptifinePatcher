@@ -144,7 +144,7 @@ Download latest OptiFine for Minecraft 1.9.4:
 ./optifine-patcher.py -d 1.9.4
 ```
 
-List only OptiFine releases for Minecraft 1.8 (eg. 1.8.0, 1.8.8 and 1.8.9):
+List OptiFine releases for Minecraft 1.8.x (eg. 1.8.0, 1.8.8 and 1.8.9):
 
 ```bash
 ./optifine-patcher.py -l 1.8
