@@ -324,6 +324,26 @@ def patch_optifine(java, optifine_jar, mc_jar, output_jar):
 
     return result
 
+def timeout_imput(msg, timeout_msg, timeout_ret=None, timeout=10):
+    # --- Prompt with timeout (Unix only) ---
+    def timeout_handler(signum, frame):
+        raise TimeoutError
+
+    if platform.system() != "Windows":
+        signal.signal(signal.SIGALRM, timeout_handler)
+        signal.alarm(timeout)  # timeout after 10 seconds
+
+    try:
+        show = input(msg).strip().lower()
+    except TimeoutError:
+        print(f"\n{timeout_msg}")
+        show = timeout_ret
+    finally:
+        if platform.system() != "Windows":
+            signal.alarm(0)  # disable alarm
+
+    return show
+
 
 def download_version(filter_version, normal_versions_only, java_path, remove, cleanup, move, folder):
     filtered = filter_versions(filter_version, normal_versions_only)
@@ -374,6 +394,8 @@ def download_version(filter_version, normal_versions_only, java_path, remove, cl
 
     if cleanup and result.returncode == 0:
         print("Running cleanup...")
+        os.remove(path_optifine_jar)
+        os.remove(client_path)
     if move and os.path.isfile(path_output_jar):
         print("Moving File...")
         shutil.move(os.path.abspath(path_output_jar), os.path.abspath(file_output_jar))
@@ -387,27 +409,12 @@ def download_version(filter_version, normal_versions_only, java_path, remove, cl
             else:
                 print(f"Cant remove dir files are still in there {e}")
 
+
     # Report completion
     status = "success" if result.returncode == 0 else "failure"
     print(f"Done Patching OptiFine with code {result.returncode} ({status}).")
 
-    # --- Prompt with timeout (Unix only) ---
-    def timeout_handler(signum, frame):
-        raise TimeoutError
-
-    if platform.system() != "Windows":
-        signal.signal(signal.SIGALRM, timeout_handler)
-        signal.alarm(10)  # timeout after 10 seconds
-
-    try:
-        show = input("Do you want to show the output (10 secs timeout on unix)? (y/N): ").strip().lower()
-    except TimeoutError:
-        print("\nNo input received, skipping output.")
-        show = "n"
-    finally:
-        if platform.system() != "Windows":
-            signal.alarm(0)  # disable alarm
-
+    show = timeout_imput("Do you want to show the output (10 secs timeout on unix)? (y/N): ", timeout_msg="No input received, skipping output.", timeout_ret="n")
     if show == "y":
         if result.stdout:
             print("=== STDOUT ===")
