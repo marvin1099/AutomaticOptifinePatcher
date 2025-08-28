@@ -1,17 +1,18 @@
 # Automatic-OptiFine-Patcher
 
-A cross-platform Python script that **downloads and patches OptiFine** into a standalone mod `.jar` file.
-This allows it to be used with loaders like **Forge/Fabric** in any launcher, such as PrismLauncher.
+A cross-platform Python script that **downloads and patches OptiFine** into a standalone mod `.jar` file.  
+This allows it to be used with loaders like **Forge/Fabric** in any launcher, such as PrismLauncher.  
 The script supports all OptiFine versions available on [optifine.net](https://optifine.net).
 
 ---
 
 ## Important
 
-For **Minecraft 1.16.5 or later**, we highly recommend using [Sodium](https://modrinth.com/mod/sodium) instead of OptiFine.
+For **Minecraft 1.16.5 or later**, we highly recommend using [Sodium](https://modrinth.com/mod/sodium) instead of OptiFine.  
 Sodium offers better performance and compatibility with mods.
 
-If you still want OptiFine features, check out [OptiFabric](https://modrinth.com/modpack/optifabric-modpack), which combines Sodium and OptiFine for a more stable experience.
+If you still want OptiFine features, check out [OptiFabric](https://modrinth.com/modpack/optifabric-modpack),   
+which combines Sodium and other mods for a more complete OptiFine experience.
 
 ---
 
@@ -73,7 +74,7 @@ Java is required for patching.
 
 ## Download
 
-Get the latest release from [Codeberg Releases](https://codeberg.org/marvin1099/AutomaticOptifinePatcher/releases/latest).
+Get the latest release from [Codeberg Releases](https://codeberg.org/marvin1099/AutomaticOptifinePatcher/releases/latest).  
 Download the `optifine_patcher.py` (or `new_patcher.py`) and place it in an empty folder.
 
 ---
