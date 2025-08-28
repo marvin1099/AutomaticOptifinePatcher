@@ -130,7 +130,7 @@ Download and patch the **latest OptiFine** for the newest supported Minecraft ve
 ./optifine-patcher.py -d
 ```
 
-Download and patch a **specific version** (Eg. 1.10.2_HD_U_D8):
+Download and patch a **specific version** (eg. 1.10.2_HD_U_D8):
 
 ```bash
 ./optifine-patcher.py -d 1.10.2_HD_U_D8
