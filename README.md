@@ -1,103 +1,167 @@
-# Automatic-Optifine-Patcher
-A cross-platform Python script that patches OptiFine to work as a jar mod file.  
-This allows it to be used with mod loaders like Forge/Fabric with any mod launcher, such as PrismLauncher.  
-The script supports all OptiFine versions from optifine.net and downloads them fully automatically.  
+Perfect — since your `main()` has grown quite a bit, the README should reflect all the available flags and workflows.
+Here’s an updated **README draft** that matches your current `argparse` setup:
+
+---
+
+# Automatic-OptiFine-Patcher
+
+A cross-platform Python script that **downloads and patches OptiFine** into a standalone mod `.jar` file.
+This allows it to be used with loaders like **Forge/Fabric** in any launcher, such as PrismLauncher.
+The script supports all OptiFine versions available on [optifine.net](https://optifine.net).
+
+---
 
 ## Important
 
-For **Minecraft version 1.16.5** or later, we highly recommend **using [Sodium](https://modrinth.com/mod/sodium)** instead of OptiFine.  
-Sodium offers significantly improved performance and better compatibility with other mods.
+For **Minecraft 1.16.5 or later**, we highly recommend using [Sodium](https://modrinth.com/mod/sodium) instead of OptiFine.
+Sodium offers better performance and compatibility with mods.
 
-If you're seeking a more comprehensive OptiFine experience, for **Minecraft version 1.16.5** or later consider **using [OptiFabric](https://modrinth.com/modpack/optifabric-modpack)**.  
-This modpack integrates Sodium, providing you with the advantages of enhanced compatibility and high performance.
+If you still want OptiFine features, check out [OptiFabric](https://modrinth.com/modpack/optifabric-modpack), which combines Sodium and OptiFine for a more stable experience.
+
+---
 
 ## Requirements
 
 ### Python
-You need Python installed on your system to run the script.
 
-#### **Windows**
-Download Python from the [official website](https://www.python.org/downloads/), or install it using the Windows Package Manager:
-```
-winget install Python.Python3
-```
+You need Python 3 installed.
 
-#### **Linux**
-On Linux, install Python using your distribution's package manager:
-- **Debian/Ubuntu-based systems:**
+* **Windows**
+
+  ```
+  winget install Python.Python3
+  ```
+* **Debian/Ubuntu**
+
   ```
   sudo apt update && sudo apt install python3
   ```
-- **Arch-based systems:**
+* **Arch Linux**
+
   ```
   sudo pacman -S python
   ```
-- **Fedora/RHEL-based systems:**
+* **Fedora/RHEL**
+
   ```
   sudo dnf install python3
   ```
-  
+
 ### Java
-Java is required for the patching process. Install the latest stable version of Java for your system using the appropriate method below.
 
-#### **Windows**  
-Install Java using the Windows Package Manager:  
-```
-winget install EclipseAdoptium.Temurin.17.JRE
-```  
-This will install Java 17, ensuring compatibility.
+Java is required for patching.
 
-Alternatively, download Java manually from [OpenLogic](https://www.openlogic.com/openjdk-downloads) or another provider. If installed manually, add Java to your PATH environment variable by following this [guide](https://confluence.atlassian.com/doc/setting-the-java_home-variable-in-windows-8895.html).
+* **Windows**
 
-#### **Linux**  
-Install Java using your distribution's package manager to get the latest supported version:
-- **Debian/Ubuntu-based systems:**
+  ```
+  winget install EclipseAdoptium.Temurin.17.JRE
+  ```
+* **Debian/Ubuntu**
+
   ```
   sudo apt install openjdk-17-jre
   ```
-- **Arch-based systems:**
+* **Arch Linux**
+
   ```
   sudo pacman -S jdk17-openjdk
   ```
-- **Fedora/RHEL-based systems:**
+* **Fedora/RHEL**
+
   ```
   sudo dnf install java-17-openjdk
   ```
 
-For consistency, all package managers install Java 17 in this guide. If a newer version is preferred, replace `17` with the desired version number.  
+> If installed manually, make sure Java is added to your `PATH`.
 
-For manual installation, download Java from [OpenLogic](https://www.openlogic.com/openjdk-downloads) and add it to your system's PATH.
+---
 
 ## Download
-Download the patcher script from [here](https://codeberg.org/marvin1099/AutomaticOptifinePatcher/releases/latest).  
-Click the ptifine_patcher.py file at the bottom-middle to download it and save the file in an empty folder.
+
+Get the latest release from [Codeberg Releases](https://codeberg.org/marvin1099/AutomaticOptifinePatcher/releases/latest).
+Download the `optifine_patcher.py` (or `new_patcher.py`) and place it in an empty folder.
+
+---
 
 ## Usage
-1. Open a terminal (or Command Prompt on Windows) and navigate to the folder containing `optifine_patcher.py`:
-   ```
-   cd "PATH/TO/PYTHON/FILE"
-   ```
-   Replace `PATH/TO/PYTHON/FILE` with the path to the folder containing the script.
 
-2. List available OptiFine versions for a specific Minecraft version (e.g., `1.9`):
-   ```
-   ./optifine-patcher.py -l 1.9
-   ```
+Run the script from a terminal/command prompt:
 
-3. Use the version from the results (e.g., `1.9.4`) to download and patch:
-   ```
-   ./optifine-patcher.py -d 1.9.4
-   ```
-
-4. The patched OptiFine file will be saved as:
-   ```
-   PATH/TO/PYTHON/FILE/$VERSION/optifine-$VERSION-MOD.jar
-   ```
-   Replace `$VERSION` with the version you downloaded (e.g., `1.9.4`).
-
-## Custom Java Path
-If Java is not added to your PATH environment variable, specify the Java path manually:
+```bash
+cd PATH/TO/PATCHER
+./optifine-patcher.py [options]
 ```
-./optifine-patcher.py -j "/PATH/TO/JAVA" -d 1.9.4
+
+### Listing Versions
+
+* List all available OptiFine versions:
+
+  ```bash
+  ./optifine-patcher.py -l
+  ```
+* List versions for a specific Minecraft version (e.g. `1.16`):
+
+  ```bash
+  ./optifine-patcher.py -l 1.16
+  ```
+
+### Downloading & Patching
+
+* Download and patch the **latest OptiFine** for the newest supported Minecraft version:
+
+  ```bash
+  ./optifine-patcher.py -d
+  ```
+* Download and patch a **specific version**:
+
+  ```bash
+  ./optifine-patcher.py -d 1.16.5_HD_U_G8
+  ```
+
+The patched file will be created inside a versioned subfolder, for example:
+
 ```
-Replace `/PATH/TO/JAVA` with the full path to your Java binary (e.g., `java` or `java.exe`).
+1.16.5/OptiFine_1.16.5_HD_U_G8-MOD.jar
+```
+
+### Options
+
+| Flag               | Description                                                                                    |
+| ------------------ | ---------------------------------------------------------------------------------------------- |
+| `-l [MC_VERSION]`  | List available OptiFine versions (optionally filtered by MC version).                          |
+| `-d [VERSION]`     | Download and patch OptiFine (`newest` if not specified).                                       |
+| `-j /path/to/java` | Use a custom Java executable (default: `java`).                                                |
+| `-w DIR`           | Set a custom working directory (relative or absolute).                                         |
+| `-n`               | Only include non-preview versions when downloading.                                            |
+| `-r`               | Re-download and overwrite files instead of skipping.                                           |
+| `-c`               | Clean up (delete) the downloaded OptiFine and client `.jar` files.                             |
+| `-m`               | Move the patched mod `.jar` into the working directory and delete the build folder (if empty). |
+| `-f`               | Remove the entire folder after a successful `-m` move.                                         |
+
+---
+
+## Examples
+
+Download latest OptiFine for Minecraft 1.12.2:
+
+```bash
+./optifine-patcher.py -d 1.12.2
+```
+
+List only OptiFine releases for Minecraft 1.8:
+
+```bash
+./optifine-patcher.py -l 1.8
+```
+
+Force re-download of OptiFine and client, then clean up:
+
+```bash
+./optifine-patcher.py -d 1.16.5 -r -c
+```
+
+Download, patch, and move the result into working dir:
+
+```bash
+./optifine-patcher.py -d 1.19.2 -m -f
+```
